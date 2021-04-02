@@ -5,6 +5,6 @@
 
 
 # TODO
-- Adding settings tab.
-- Fixed bugs.
-- Cleared output (sometimes laggy or delay).
+- Add settings tab.
+- Fix bugs if there is. Issues are open.
+- Clear output (sometimes laggy or delay).
