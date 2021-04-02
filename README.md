@@ -7,4 +7,4 @@
 # TODO
 - Add settings tab.
 - Fix bugs if there is. Issues are open.
-- Clear output (sometimes laggy or delay).
+- Re-designing. I guess that makes sense since the design is simple. I want to add more details.
