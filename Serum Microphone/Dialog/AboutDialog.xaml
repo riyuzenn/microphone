@@ -1,0 +1,31 @@
+﻿<ui:ContentDialog x:Class="Serum_Microphone.Dialog.AboutDialog"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Serum_Microphone.Dialog"
+      xmlns:ui="http://schemas.modernwpf.com/2019"
+      mc:Ignorable="d" 
+      PrimaryButtonText="Ok"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Serum Microphone">
+
+    <Grid>
+        
+        <StackPanel>
+            <TextBlock>
+                
+                Serum Microphone is a software used to <LineBreak></LineBreak>create a text to speech and pipe it on your <LineBreak></LineBreak> microphone
+                <LineBreak></LineBreak>
+            </TextBlock>
+            <TextBlock Text="Version: 1.012" Style="{StaticResource CaptionTextBlockStyle}"/>
+            <TextBlock  Style="{StaticResource CaptionTextBlockStyle}">
+                <Span xml:space="preserve"><Run>Developer: </Run> <Hyperlink NavigateUri="https://github.com/zenqii">Zenqi</Hyperlink></Span>
+            </TextBlock>
+            <ui:HyperlinkButton FontSize="16" Margin="0, 10, 0, 0" Content="Release Note" NavigateUri="https://github.com/zenqii/solinestudio"/>
+            <ui:HyperlinkButton FontSize="16" Content="Help" NavigateUri="https://discord.gg/QDTj5sz"/>
+
+        </StackPanel>
+
+    </Grid>
+</ui:ContentDialog>
