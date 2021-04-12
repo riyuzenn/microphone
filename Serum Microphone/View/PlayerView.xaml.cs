@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -58,9 +58,6 @@ namespace Serum_Microphone.View
         private void do_work(object sender, DoWorkEventArgs e)
         {
 
-            BackgroundWorker newWorker = new BackgroundWorker();
-            newWorker.DoWork += do_new_work;
-
             using (var stream = new MemoryStream())
             using (var speechEngine = new SpeechSynthesizer())
             {
@@ -91,36 +88,12 @@ namespace Serum_Microphone.View
                     waveOut.Initialize(waveSource);
                     waveOut.Play();
                     //config.is_playing = true;
-                    newWorker.RunWorkerAsync();
                     waveOut.WaitForStopped();
                    
 
                 }
             }
 
-        }
-
-
-        private void do_new_work(object sender, DoWorkEventArgs e)
-        {
-            using (var stream = new MemoryStream())
-            using (var speechEngine = new SpeechSynthesizer())
-            {
-                speechEngine.SetOutputToWaveStream(stream);
-                speechEngine.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Adult);
-                speechEngine.Speak(config.text);
-
-                using (var waveOut = new WaveOut { Device = new WaveOutDevice(config.speakerId) })
-                using (var waveSource = new MediaFoundationDecoder(stream))
-                {
-                    waveOut.Initialize(waveSource);
-                    waveOut.Play();
-                    //config.is_playing = true;
-                    waveOut.WaitForStopped();
-
-
-                }
-            }
         }
 
         private void work_completed(object sender, RunWorkerCompletedEventArgs e)
