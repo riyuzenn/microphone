@@ -16,9 +16,9 @@
             <TextBlock Text="About Serum Microphone" FontSize="25" Height="50"/>
             <TextBlock FontSize="12" Foreground="DarkGray" Height="61" Width="1242"><Run Text="See information about Serum Microphone and it's creator. "/><LineBreak/><Run Text="And info about the author."/></TextBlock>
             <Button Content="Learn More" Height="33" Width="92" Click="Button_Click"/>
-            <TextBlock Text="About Zenqi" FontSize="20" Margin="0, 30,0,0"/>
-            <TextBlock Margin="0, 5,0,0" FontSize="12"  Text="Contact information and all about Zenqi." Foreground="DarkGray" Height="36" Width="1245"/>
-            <ui:HyperlinkButton Content="home"  Grid.Row="4" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" NavigateUri="https://github.com/znqi">
+            <TextBlock Text="About Serum Studio" FontSize="20" Margin="0, 30,0,0"/>
+            <TextBlock Margin="0, 5,0,0" FontSize="12"  Text="Contact information and all about Serum Studio." Foreground="DarkGray" Height="36" Width="1245"/>
+            <ui:HyperlinkButton Content="home"  Grid.Row="4" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" NavigateUri="https://github.com/serumstudio">
                 <ui:HyperlinkButton.Template>
                     <ControlTemplate>
                         <TextBlock TextAlignment="Left">About me</TextBlock>
