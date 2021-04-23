@@ -17,6 +17,7 @@ using Serum_Microphone.View;
 using ModernWpf.Controls;
 using System.Net;
 using Serum_Microphone.Dialog;
+using DiscordRPC;
 
 namespace Serum_Microphone
 {
@@ -27,6 +28,9 @@ namespace Serum_Microphone
         public MainWindow()
         {
             InitializeComponent();
+
+            DiscordRP rp = new DiscordRP();
+            rp.Initialize();
             
         }
 
@@ -47,6 +51,7 @@ namespace Serum_Microphone
                     UpdateDialog dialog = new UpdateDialog();
                     await dialog.ShowAsync();
                 }
+                
 
             }
             catch (Exception ex)
@@ -82,7 +87,7 @@ namespace Serum_Microphone
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            CheckForUpdate();
+            // CheckForUpdate();
         }
     }
 }

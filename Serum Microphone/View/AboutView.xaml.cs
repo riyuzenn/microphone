@@ -24,7 +24,7 @@ namespace Serum_Microphone.View
         public AboutView()
         {
             InitializeComponent();
-            CopyrightNotice.Text = $"Copyright © 2020-{DateTime.Now.Year.ToString()}, Serum Studio. All rights reserved.";
+            CopyrightNotice.Text = $"Copyright © 2020-{DateTime.Now.Year.ToString()}, Zenqi. All rights reserved.";
         }
 
         
