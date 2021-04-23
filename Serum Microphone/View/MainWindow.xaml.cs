@@ -39,7 +39,7 @@ namespace Serum_Microphone
             try
             {
                 WebClient webClient = new WebClient();
-                string version = "1.1.0";
+                string version = "1.1.1";
                 string _version = webClient.DownloadString("https://drive.google.com/uc?export=download&id=1a1PKfAfUl_6jUUAZrii-8pDkuOUJyTrp");
 
                 if (version == _version)
