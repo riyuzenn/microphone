@@ -87,7 +87,7 @@ namespace Serum_Microphone
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // CheckForUpdate();
+            CheckForUpdate();
         }
     }
 }
