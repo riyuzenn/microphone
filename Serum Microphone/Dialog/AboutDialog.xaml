@@ -20,10 +20,10 @@
             </TextBlock>
             <TextBlock Text="Version: 1.012" Style="{StaticResource CaptionTextBlockStyle}"/>
             <TextBlock  Style="{StaticResource CaptionTextBlockStyle}">
-                <Span xml:space="preserve"><Run>Developer: </Run> <Hyperlink NavigateUri="https://github.com/zenqii">Zenqi</Hyperlink></Span>
+                <Span xml:space="preserve"><Run>Developer: </Run> <Hyperlink NavigateUri="https://github.com/serumstudio">Serum Studio</Hyperlink></Span>
             </TextBlock>
-            <ui:HyperlinkButton FontSize="16" Margin="0, 10, 0, 0" Content="Release Note" NavigateUri="https://github.com/zenqii/solinestudio"/>
-            <ui:HyperlinkButton FontSize="16" Content="Help" NavigateUri="https://discord.gg/QDTj5sz"/>
+            <ui:HyperlinkButton FontSize="16" Margin="0, 10, 0, 0" Content="Release Note" NavigateUri="https://github.com/serumstudio/microphone/releases"/>
+            <ui:HyperlinkButton FontSize="16" Content="Help" NavigateUri="https://discord.gg/e4ygDyK6rg"/>
 
         </StackPanel>
 
