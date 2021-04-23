@@ -30,12 +30,12 @@ namespace Serum_Microphone
             
         }
 
-        /*private async void CheckForUpdate()
+        private async void CheckForUpdate()
         {
             try
             {
                 WebClient webClient = new WebClient();
-                string version = "1.0.0";
+                string version = "1.1.0";
                 string _version = webClient.DownloadString("https://drive.google.com/uc?export=download&id=1a1PKfAfUl_6jUUAZrii-8pDkuOUJyTrp");
 
                 if (version == _version)
@@ -53,7 +53,7 @@ namespace Serum_Microphone
             {
 
             }
-        }*/
+        }
 
         private void NavigationView_Loaded(object sender, RoutedEventArgs e)
         {
@@ -82,7 +82,7 @@ namespace Serum_Microphone
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // CheckForUpdate();
+            CheckForUpdate();
         }
     }
 }
