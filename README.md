@@ -9,4 +9,4 @@ We have specific documentation for this project [here](https://github.com/serums
 # TODO
 - Add settings tab.
 - Fix bugs if there is. Issues are open.
-- Re-designing. I guess that makes sense since the design is simple. I want to add more details.
+- Re-designing. I guess that makes sense since the design is simple. We want to add more details.
