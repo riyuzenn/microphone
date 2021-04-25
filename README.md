@@ -3,6 +3,8 @@
 
 🎙 A Text-To-Speech program that act as your microphone. Download it at https://serummicrophone.ml
 
+We have specific documentation for this project [here](https://github.com/serumstudio/microphone/tree/main/docs)
+
 
 # TODO
 - Add settings tab.
