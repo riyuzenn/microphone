@@ -16,6 +16,10 @@ and press the card, it will automatically download.
 - Let's suppose that the software is properly installed. Make sure to use CABLE Output `(VB-Audio Virtual Cable)` as your input device. And done, enjoy!
 
 
+## Why Serum Microphone?
+
+Serum Microphone is actively developed and it is a versatile program. The software is unique. I havent seen any software like this and it's good for those who doesnt have microphone.
+
 ## Found any bug/issues?
 > Still having an issue? Join our [discord server](https://discord.gg/e4ygDyK6rg)
 
