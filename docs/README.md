@@ -5,7 +5,7 @@
 If you want to know how Serum Microphone works, you can check the specific docs [here](https://github.com/serumstudio/microphone/tree/main/docs/info)
 
 ## Installation
-> If you still have error installing the software, kindly watch our tutorial vid [here](https://www.youtube.com/watch?v=XNxFuK9xeSY)
+> If you still have error installing the software, kindly watch our tutorial vid [here](https://www.youtube.com/watch?v=XNxFuK9xeSY). However if you want to build Serum Microphone on your own, kindly visit [here](https://github.com/serumstudio/microphone/tree/main/docs/build)
 
 - First of all, you need [Vb Audio Cable Driver](https://vb-audio.com/Cable/) installed on your machine. It is available both 32-bit and 64 bit machines.
 Next, after you installed the driver properly, it will prompt you to restart your PC. 
