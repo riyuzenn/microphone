@@ -17,6 +17,8 @@ using Serum_Microphone.View;
 using ModernWpf.Controls;
 using System.Net;
 using Serum_Microphone.Dialog;
+using System.Deployment.Application;
+using System.Reflection;
 using DiscordRPC;
 
 namespace Serum_Microphone
@@ -34,19 +36,36 @@ namespace Serum_Microphone
             
         }
 
+        private Version GetVersion()
+        {
+            try
+            {
+                return ApplicationDeployment.CurrentDeployment.CurrentVersion;
+            }
+            catch (Exception)
+            {
+                return Assembly.GetExecutingAssembly().GetName().Version;
+            }
+        }
+
         private async void CheckForUpdate()
         {
             try
             {
                 WebClient webClient = new WebClient();
-                string version = "1.1.1";
-                string _version = webClient.DownloadString("https://drive.google.com/uc?export=download&id=1a1PKfAfUl_6jUUAZrii-8pDkuOUJyTrp");
 
-                if (version == _version)
+                
+
+                string _version = webClient.DownloadString("https://drive.google.com/uc?export=download&id=1a1PKfAfUl_6jUUAZrii-8pDkuOUJyTrp");
+                var version = GetVersion();
+
+                // mainWindow.Title = $"Serum Microphone - {version.ToString()}";
+
+                if (version.ToString() == _version)
                 {
                     
                 }
-                else if (version != _version)
+                else if (version.ToString() != _version)
                 {
                     UpdateDialog dialog = new UpdateDialog();
                     await dialog.ShowAsync();

@@ -18,7 +18,7 @@
                 Serum Microphone is a software used to <LineBreak></LineBreak>create a text to speech and pipe it on your <LineBreak></LineBreak> microphone
                 <LineBreak></LineBreak>
             </TextBlock>
-            <TextBlock Text="Version: 1.1.1" Style="{StaticResource CaptionTextBlockStyle}"/>
+            <TextBlock x:Name="versionText" Style="{StaticResource CaptionTextBlockStyle}"/>
             <TextBlock  Style="{StaticResource CaptionTextBlockStyle}">
                 <Span xml:space="preserve"><Run>Developer: </Run> <Hyperlink NavigateUri="https://github.com/serumstudio">Serum Studio</Hyperlink></Span>
             </TextBlock>

@@ -36,8 +36,6 @@
                 </ui:HyperlinkButton.Template>
             </ui:HyperlinkButton>
 
-            
-
             <ui:HyperlinkButton Margin="0, 10,0,0" Content="home"  Grid.Row="4" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" NavigateUri="https://github.com/znqi">
                 <ui:HyperlinkButton.Template>
                     <ControlTemplate>
