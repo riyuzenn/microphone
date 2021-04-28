@@ -10,6 +10,6 @@ If you want to contribute, please check our rules on how to contribute [here](ht
 
 # TODO
 - ~~Add Discord Presence~~
-- Add settings tab.
+- Add settings tab. (On going)
 - Fix bugs if there is. Issues are open.
 - Re-designing. I guess that makes sense since the design is simple. We want to add more details.
