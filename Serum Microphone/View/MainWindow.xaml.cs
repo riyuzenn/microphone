@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +19,7 @@ using System.Net;
 using Serum_Microphone.Dialog;
 using System.Deployment.Application;
 using System.Reflection;
-using DiscordRPC;
+using System.ComponentModel;
 
 namespace Serum_Microphone
 {
@@ -31,8 +31,10 @@ namespace Serum_Microphone
         {
             InitializeComponent();
 
-            DiscordRP rp = new DiscordRP();
-            rp.Initialize();
+            
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += ReadSettings;
+            worker.RunWorkerAsync();
             
         }
 
@@ -89,19 +91,48 @@ namespace Serum_Microphone
         {
             NavigationViewItem item = args.SelectedItem as NavigationViewItem;
 
-         
-            switch (item.Tag.ToString())
+            if (args.IsSettingsSelected)
             {
-                case "playerview":
-                    ContentFrame.Navigate(typeof(PlayerView));
-                    break;
-
-                case "aboutview":
-                    ContentFrame.Navigate(typeof(AboutView));
-                    break;
-
-                    
+                ContentFrame.Navigate(typeof(SettingsPage));
             }
+            else
+            {
+                switch (item.Tag.ToString())
+                {
+                    case "playerview":
+                        ContentFrame.Navigate(typeof(PlayerView));
+                        break;
+
+                    case "aboutview":
+                        ContentFrame.Navigate(typeof(AboutView));
+                        break;
+
+
+                }
+            }
+         
+            
+        }
+        
+
+        private void ReadSettings(object sender, DoWorkEventArgs e)
+        {
+            
+            bool presence = Properties.Settings.Default.discord_presence;
+            
+            while (true)
+            {
+               
+                if (presence == true)
+                {
+                    
+                }
+                else
+                {
+
+                }
+            }
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
