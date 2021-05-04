@@ -1,100 +1,145 @@
-<Window x:Class="Serum_Microphone.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Serum_Microphone"
-        mc:Ignorable="d" x:Name="mainWindow"
-        Title="Serum Microphone" Height="496.345" Width="723.754"
-        xmlns:ui="http://schemas.modernwpf.com/2019"
-        ui:WindowHelper.UseModernWindowStyle="True"
-        ui:ThemeManager.RequestedTheme="Dark"
-        ui:TitleBar.ExtendViewIntoTitleBar="True"
-        ui:TitleBar.Style="{DynamicResource AppTitleBarStyle}"
-        ui:TitleBar.ButtonStyle="{DynamicResource AppTitleBarButtonStyle}"
-        Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}"
-        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="pack://application:,,,/Assets/microphone.ico">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Text.RegularExpressions;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using Serum_Microphone.View;
+using ModernWpf.Controls;
+using System.Net;
+using Serum_Microphone.Dialog;
+using System.Deployment.Application;
+using System.Reflection;
+using System.ComponentModel;
 
-    <Window.Resources>
+namespace Serum_Microphone
+{
+    
 
-        <Style x:Key="AppTitleBarStyle" TargetType="ui:TitleBarControl">
-            <Setter Property="ui:ThemeManager.RequestedTheme" Value="Dark" />
-        </Style>
-        <Style x:Key="AppTitleBarButtonStyle" TargetType="ui:TitleBarButton">
-            <Setter Property="IsActive" Value="{Binding IsActive, ElementName=Window}" />
-        </Style>
-        <Style x:Key="AppTitleBarBackButtonStyle" TargetType="ui:TitleBarButton" BasedOn="{StaticResource TitleBarBackButtonStyle}">
-            <Setter Property="IsActive" Value="{Binding IsActive, ElementName=Window}" />
-        </Style>
-    </Window.Resources>
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
 
-    <Grid>
-        <Grid.ColumnDefinitions>
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += ReadSettings;
+            worker.RunWorkerAsync();
             
-        </Grid.ColumnDefinitions>
-        <Grid
-            x:Name="AppTitleBar"
-            Background="#121212"
-            Height="{Binding ElementName=Window, Path=(ui:TitleBar.Height)}"
-            ui:ThemeManager.RequestedTheme="Dark" Grid.ColumnSpan="2">
+        }
 
-            <Grid.Style>
-                <Style TargetType="Grid">
-                    <Setter Property="TextElement.Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}" />
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding IsActive, ElementName=Window}" Value="False">
-                            <Setter Property="TextElement.Foreground" Value="{DynamicResource SystemControlDisabledBaseMediumLowBrush}" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Grid.Style>
+        private Version GetVersion()
+        {
+            try
+            {
+                return ApplicationDeployment.CurrentDeployment.CurrentVersion;
+            }
+            catch (Exception)
+            {
+                return Assembly.GetExecutingAssembly().GetName().Version;
+            }
+        }
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="254*" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="253*" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="94*" />
-                <ColumnDefinition Width="159*"/>
-            </Grid.ColumnDefinitions>
+        private async void CheckForUpdate()
+        {
+            try
+            {
+                WebClient webClient = new WebClient();
 
+                
 
+                string _version = webClient.DownloadString("https://drive.google.com/uc?export=download&id=1a1PKfAfUl_6jUUAZrii-8pDkuOUJyTrp");
+                var version = GetVersion();
 
-            <!-- Horizontally centered title -->
+                // mainWindow.Title = $"Serum Microphone - {version.ToString()}";
+
+                if (version.ToString() == _version)
+                {
+                    
+                }
+                else if (version.ToString() != _version)
+                {
+                    UpdateDialog dialog = new UpdateDialog();
+                    await dialog.ShowAsync();
+                }
+                
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void NavigationView_Loaded(object sender, RoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(PlayerView));
             
-            <StackPanel
-                Grid.Column="3"
-                Orientation="Horizontal">
-                <ui:TitleBarButton
-                    Style="{StaticResource AppTitleBarButtonStyle}"
-                    FontFamily="{DynamicResource ContentControlThemeFontFamily}"
-                    FontSize="13"
-                    Width="NaN"
-                    Padding="16,0"
-                    />
+        }
 
-            </StackPanel>
+        private void NavigationView_SelectionChanged(ModernWpf.Controls.NavigationView sender, ModernWpf.Controls.NavigationViewSelectionChangedEventArgs args)
+        {
+            NavigationViewItem item = args.SelectedItem as NavigationViewItem;
+
+            if (args.IsSettingsSelected)
+            {
+                ContentFrame.Navigate(typeof(SettingsPage));
+            }
+            else
+            {
+                switch (item.Tag.ToString())
+                {
+                    case "playerview":
+                        ContentFrame.Navigate(typeof(PlayerView));
+                        break;
+
+                    case "aboutview":
+                        ContentFrame.Navigate(typeof(AboutView));
+                        break;
 
 
+                }
+            }
+         
+            
+        }
+        
 
-        </Grid>
-            <ui:NavigationView 
-                PaneDisplayMode="LeftCompact"
-                IsBackButtonVisible="Collapsed"
-                SelectionChanged="NavigationView_SelectionChanged"
-                Loaded="NavigationView_Loaded"
-                IsSettingsVisible="True">
+        private void ReadSettings(object sender, DoWorkEventArgs e)
+        {
+            
+            bool presence = Properties.Settings.Default.discord_presence;
+            DiscordRP rp = new DiscordRP();
 
-                <ui:NavigationView.MenuItems>
-                    <ui:NavigationViewItem Content="Player" Icon="Microphone" Tag="playerview"/>
+            while (true)
+            {
+               
+                
+                if (presence == true)
+                {
+                    rp.Initialize();
+                }
+                else
+                {
+                    rp.DeInitialize(); 
+                }
+            }
+            
+        }
 
-                    <ui:NavigationViewItem Content="About" Icon="Contact" Tag="aboutview"/>
-                </ui:NavigationView.MenuItems>
-                <ScrollViewer>
-                    <ui:Frame x:Name="ContentFrame" />
-                </ScrollViewer>
-            </ui:NavigationView>
-
-    </Grid>
-
-</Window>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            CheckForUpdate();
+            
+        }
+    }
+}
