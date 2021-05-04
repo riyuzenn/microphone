@@ -12,12 +12,30 @@
     <Grid>
         <StackPanel Margin="40,40,20,40">
             <TextBlock Text="Serum Microphone Settings" FontSize="25" Height="50"/>
-            <TextBlock FontSize="12" Foreground="DarkGray" Margin="0,10,0,20"><Run Text="See information and settings about Serum Microphone"/></TextBlock>
-            <!-- <Button Content="Learn More" Height="33" Width="92" Click="Button_Click"/> -->
-
+            <TextBlock FontSize="12" Foreground="DarkGray" Margin="0,10,0,20"><Run Text="See information and settings about Serum Microphone."/></TextBlock>
+    
             <TextBlock Text="Settings" FontSize="20" />
-            <ui:ToggleSwitch Margin="0,25,0,0" x:Name="SwitchPresence" Header="Discord Presence" Toggled="ToggleSwitch_Toggled"/>
+            <ui:ToggleSwitch Margin="0,25,0,0" x:Name="SwitchPresence" Header="Discord Presence (restart required)" Initialized="SwitchPresence_Initialized" Toggled="ToggleSwitch_Toggled"/>
             
+            <TextBlock Text="Age"  Margin="0,25,0,0" FontSize="15" />
+            <ComboBox x:Name="voiceAgeComboBox" Margin="0,10,0,0" 
+                      MinWidth="200" MaxWidth="200" Initialized="voiceAgeComboBox_Initialized" 
+                      SelectionChanged="voiceAgeComboBox_SelectionChanged">
+                <ComboBoxItem Content="Adult" />
+                <ComboBoxItem Content="Senior"/>
+                <ComboBoxItem Content="Teen" />
+                <ComboBoxItem Content="Child" />
+            </ComboBox>
+
+            <TextBlock Text="Gender"  Margin="0,25,0,0" FontSize="15" />
+            <ComboBox x:Name="voiceGenderComboBox" Margin="0,10,0,0" 
+                      MinWidth="200" MaxWidth="200" Initialized='voiceGenderComboBox_Initialized' SelectionChanged="voiceGenderComboBox_SelectionChanged">
+                <ComboBoxItem Content="Female" />
+                <ComboBoxItem Content="Male"/>
+                <ComboBoxItem Content="Neutral" />
+            </ComboBox>
+
+
         </StackPanel>
     </Grid>
 </Page>
