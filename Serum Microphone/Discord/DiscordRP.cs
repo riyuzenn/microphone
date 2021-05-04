@@ -16,7 +16,7 @@ namespace Serum_Microphone
 
         public void Initialize()
         {
-            client = new DiscordRpcClient("828838257604427859");
+            client = new DiscordRpcClient("839001022071963689");
 
             client.Logger = new ConsoleLogger() { Level = LogLevel.Warning };
 
