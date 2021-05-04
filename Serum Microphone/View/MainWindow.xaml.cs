@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,9 +31,7 @@ namespace Serum_Microphone
         {
             InitializeComponent();
 
-            BackgroundWorker worker = new BackgroundWorker();
-            worker.DoWork += ReadSettings;
-            worker.RunWorkerAsync();
+            
             
         }
 
@@ -117,18 +115,13 @@ namespace Serum_Microphone
             bool presence = Properties.Settings.Default.discord_presence;
             DiscordRP rp = new DiscordRP();
 
-            while (true)
+            if (presence == true)
             {
-               
-                
-                if (presence == true)
-                {
-                    rp.Initialize();
-                }
-                else
-                {
-                    rp.DeInitialize(); 
-                }
+                rp.Initialize();
+            }
+            else
+            {
+                rp.DeInitialize();
             }
             
         }
@@ -136,7 +129,9 @@ namespace Serum_Microphone
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             CheckForUpdate();
-            
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += ReadSettings;
+            worker.RunWorkerAsync();
         }
     }
 }
