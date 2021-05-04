@@ -1,4 +1,4 @@
-<ui:ContentDialog x:Class="Serum_Microphone.Dialog.UpdateDialog"
+﻿<ui:ContentDialog x:Class="Serum_Microphone.Dialog.UpdateDialog"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -11,7 +11,7 @@
 
     <Grid>
         <StackPanel>
-            <TextBlock>New Update is out now!</TextBlock>
+            <TextBlock x:Name="ver"></TextBlock>
             <TextBlock>Please update the application.</TextBlock>
             <ui:HyperlinkButton FontSize="16" Margin="0, 10, 0, 0" Content="Release Note" NavigateUri="https://github.com/serumstudio/microphone/releases"/>
         </StackPanel>

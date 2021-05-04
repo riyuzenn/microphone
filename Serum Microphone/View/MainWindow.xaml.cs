@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,7 +57,10 @@ namespace Serum_Microphone
 
                 
 
-                string _version = webClient.DownloadString("https://drive.google.com/uc?export=download&id=1a1PKfAfUl_6jUUAZrii-8pDkuOUJyTrp");
+                string _version = webClient.DownloadString("https://raw.githubusercontent.com/serumstudio/microphone/main/version.txt");
+                Properties.Settings.Default.new_version = _version;
+                Properties.Settings.Default.Save();
+
                 var version = GetVersion();
 
                 // mainWindow.Title = $"Serum Microphone - {version.ToString()}";

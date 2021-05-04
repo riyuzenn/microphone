@@ -23,7 +23,15 @@ namespace Serum_Microphone.Dialog
     {
         public UpdateDialog()
         {
+
             InitializeComponent();
+
+            ChangeVersion($"New Update is out now v{Properties.Settings.Default.new_version}");
+        }
+
+        private void ChangeVersion(string text)
+        {
+            ver.Text = text;
         }
     }
 }

@@ -61,7 +61,7 @@
 
 
             <!-- Horizontally centered title -->
-
+            
             <StackPanel
                 Grid.Column="3"
                 Orientation="Horizontal">
@@ -78,22 +78,22 @@
 
 
         </Grid>
-        <ui:NavigationView 
-            PaneDisplayMode="LeftCompact"
-            IsBackButtonVisible="Collapsed"
-            SelectionChanged="NavigationView_SelectionChanged"
-            Loaded="NavigationView_Loaded"
-            IsSettingsVisible="False">
+            <ui:NavigationView 
+                PaneDisplayMode="LeftCompact"
+                IsBackButtonVisible="Collapsed"
+                SelectionChanged="NavigationView_SelectionChanged"
+                Loaded="NavigationView_Loaded"
+                IsSettingsVisible="True">
 
-            <ui:NavigationView.MenuItems>
-                <ui:NavigationViewItem Content="Player" Icon="Microphone" Tag="playerview"/>
+                <ui:NavigationView.MenuItems>
+                    <ui:NavigationViewItem Content="Player" Icon="Microphone" Tag="playerview"/>
 
-                <ui:NavigationViewItem Content="About" Icon="Contact" Tag="aboutview"/>
-            </ui:NavigationView.MenuItems>
-            <ScrollViewer>
-                <ui:Frame x:Name="ContentFrame" />
-            </ScrollViewer>
-        </ui:NavigationView>
+                    <ui:NavigationViewItem Content="About" Icon="Contact" Tag="aboutview"/>
+                </ui:NavigationView.MenuItems>
+                <ScrollViewer>
+                    <ui:Frame x:Name="ContentFrame" />
+                </ScrollViewer>
+            </ui:NavigationView>
 
     </Grid>
 
