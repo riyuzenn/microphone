@@ -20,6 +20,11 @@ and press the card, it will automatically download.
 
 Serum Microphone is actively developed and it is a versatile program. The software is unique. I havent seen any software like this and it's good for those who doesnt have microphone.
 
+## Page information
+
+Looking for documentation on each pages on serum mcirophone?
+Kindly refer to this [link](https://github.com/serumstudio/microphone/tree/main/docs/pages)
+
 ## Found any bug/issues?
 > Still having an issue? Join our [discord server](https://discord.gg/e4ygDyK6rg)
 
