@@ -1,6 +1,6 @@
 # Serum Microphone
 > I don't have enough time to fix this repo, but I will do it soon.<br>
-> Also, please take note that Serum Microphone works only with Windows
+> Version 1.1.2.0 having lag issues including high consumption of cpu, kindly download 1.1.1.2 instead.
 
 🎙 A Text-To-Speech program that act as your microphone. Download it at https://serummicrophone.ml
 
@@ -9,6 +9,7 @@ If you want to contribute, please check our rules on how to contribute [here](ht
 
 
 # Tried on
+> Only for windows
 - Windows 10 (32 & 64 bit) :heavy_check_mark:
 - Windows 8 (32 & 64 bit) (I havent tried yet. If you did, kindly dm me on discord: Zenqi#0231)
 - Windows 7 (32 & 64 bit) (I havent tried yet. If you did, kindly dm me on discord: Zenqi#0231)
