@@ -23,70 +23,39 @@ namespace Serum_Microphone.View
         public SettingsPage()
         {
             InitializeComponent();
-            MessageBox.Show($"{Properties.Settings.Default.discord_presence}");
-        }
-
-        private void CreateSettings(bool value)
-        {
-            /* 
-            var property = new System.Configuration.SettingsProperty("discord_presence");
-            property.PropertyType = typeof(bool);
-            property.DefaultValue = value;
-            Properties.Settings.Default.Properties.Add(property);
-            Properties.Settings.Default.Save(); 
-            */
-
-            Properties.Settings.Default.discord_presence = value;
-        }
-
-        /*
-        private bool ReadRichPresence()
-        {
-            if (SwitchPresence.IsOn)
+            //MessageBox.Show($"{Properties.Settings.Default.discord_presence}");
+            if (Properties.Settings.Default.discord_presence)
             {
-                return true;
+                SwitchPresence.IsOn = true;
+            }
+            else if (Properties.Settings.Default.discord_presence == false)
+            {
+                SwitchPresence.IsOn = false;
+            }
+        }
+
+        private void ChangeDiscordPresenceSettings(bool value)
+        {
+          
+            Properties.Settings.Default.discord_presence = value;
+            Properties.Settings.Default.Save();
+        }
+
+       
+        private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
+        {
+
+            if (SwitchPresence.IsOn == true)
+            {
+                ChangeDiscordPresenceSettings(true);
             }
             else
             {
-                return false;
+                ChangeDiscordPresenceSettings(false);
             }
-        }
-        */
-
-        private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
-        {
-            ModernWpf.Controls.ToggleSwitch toggleSwitch = sender as ModernWpf.Controls.ToggleSwitch;
-            DiscordRP rp = new DiscordRP();
 
             
-            try
-            {
-                if (toggleSwitch != null)
-                {
-                    if (toggleSwitch.IsOn == true)
-                    {
-                        CreateSettings(true);
-                        rp.Initialize();
-                    }
-                    else if (toggleSwitch.IsOn == false)
-                    {
-                        
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                CreateSettings(false);
-                rp.DeInitialize();
-                //MessageBox.Show(ex.ToString());
-            }
-            
-            
-            
 
-
-            //CreateSettings(ReadRichPresence());
-            //MessageBox.Show($"{Properties.Settings.Default.discord_presence}");
         }
     }
 }
