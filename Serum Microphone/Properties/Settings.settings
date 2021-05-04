@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="discord_presence" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="voice_age" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>

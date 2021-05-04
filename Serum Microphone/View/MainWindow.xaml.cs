@@ -55,21 +55,15 @@ namespace Serum_Microphone
             {
                 WebClient webClient = new WebClient();
 
-                
 
-                string _version = webClient.DownloadString("https://raw.githubusercontent.com/serumstudio/microphone/main/version.txt");
-                Properties.Settings.Default.new_version = _version;
-                Properties.Settings.Default.Save();
 
+                string _version = webClient.DownloadString("https://drive.google.com/u/3/uc?id=1a1PKfAfUl_6jUUAZrii-8pDkuOUJyTrp");
                 var version = GetVersion();
 
                 // mainWindow.Title = $"Serum Microphone - {version.ToString()}";
-
-                if (version.ToString() == _version)
-                {
-                    
-                }
-                else if (version.ToString() != _version)
+                
+                
+                if (version.ToString() != _version)
                 {
                     UpdateDialog dialog = new UpdateDialog();
                     await dialog.ShowAsync();

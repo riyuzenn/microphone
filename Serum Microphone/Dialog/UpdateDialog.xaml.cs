@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ModernWpf.Controls;
+using System.Net;
 
 namespace Serum_Microphone.Dialog
 {
@@ -26,7 +27,9 @@ namespace Serum_Microphone.Dialog
 
             InitializeComponent();
 
-            ChangeVersion($"New Update is out now v{Properties.Settings.Default.new_version}");
+            WebClient webClient = new WebClient();
+            string _version = webClient.DownloadString("https://raw.githubusercontent.com/serumstudio/microphone/main/version.txt");
+            ChangeVersion($"New Update is out now v{_version}");
         }
 
         private void ChangeVersion(string text)

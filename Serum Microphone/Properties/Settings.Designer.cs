@@ -25,7 +25,7 @@ namespace Serum_Microphone.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool discord_presence {
             get {
                 return ((bool)(this["discord_presence"]));
