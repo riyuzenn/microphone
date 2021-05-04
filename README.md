@@ -1,6 +1,6 @@
 # Serum Microphone
 > I don't have enough time to fix this repo, but I will do it soon.<br>
-> Also, please take note that Serum Microphone works only with Windows, I havent tried on 32 bit machine.
+> Also, please take note that Serum Microphone works only with Windows
 
 🎙 A Text-To-Speech program that act as your microphone. Download it at https://serummicrophone.ml
 
