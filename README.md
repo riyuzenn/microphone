@@ -1,6 +1,6 @@
 # Serum Microphone
 > I don't have enough time to fix this repo, but I will do it soon.<br>
-> Version 1.1.2.0 having lag issues including high consumption of cpu, kindly download 1.1.1.2 instead.
+
 
 🎙 A Text-To-Speech program that act as your microphone. Download it at https://serummicrophone.ml
 
