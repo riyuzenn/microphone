@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,6 +51,7 @@ namespace Serum_Microphone.View
         public PlayerView()
         {
             InitializeComponent();
+          
             
 
         }
@@ -80,7 +81,46 @@ namespace Serum_Microphone.View
                     }
                 }
                 speechEngine.SetOutputToWaveStream(stream);
-                speechEngine.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Adult);
+
+                VoiceGender gender = VoiceGender.Neutral; 
+                VoiceAge age = VoiceAge.NotSet; 
+
+                switch (Properties.Settings.Default.voice_gender)
+                {
+                    case 0:
+                        gender = VoiceGender.Female;
+                        break;
+
+                    case 1:
+                        gender = VoiceGender.Male;
+                        break;
+
+                    case 2:
+                        gender = VoiceGender.Neutral;
+                        break;
+                }
+
+
+                switch (Properties.Settings.Default.voice_age)
+                {
+                    case 0:
+                        age = VoiceAge.Adult;
+                        break;
+
+                    case 1:
+                        age = VoiceAge.Senior;
+                        break;
+
+                    case 2:
+                        age = VoiceAge.Teen;
+                        break;
+
+                    case 3:
+                        age = VoiceAge.Child;
+                        break;
+                }
+
+                speechEngine.SelectVoiceByHints(gender, age);
                 speechEngine.Speak(config.text);
                 using (var waveOut = new WaveOut { Device = new WaveOutDevice(config.deviceId) })
                 using (var waveSource = new MediaFoundationDecoder(stream))
