@@ -8,3 +8,5 @@ Install Visual Studio Installer [here](https://visualstudio.microsoft.com/downlo
 
 ### Building Serum Microphone w/ Visual Studio
 If you haven't install the source files, download it. After you download, open the file named "**Serum Microphone.sln**". It's a solution file provided by Visual Studio, for more information about solution files, check this [one](https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2019).
+
+After you opened the solution file, Navigate to menu bar and find change "**Debug**" option to "**Release**", this will build a release version instead of Debug, for deployment purposes. Next, navigate to "**Build**" menu at the very top of Visual Studio, and chose "**Build sln**". 
