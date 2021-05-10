@@ -1,3 +1,4 @@
+
 ## Documentation for Serum Microphone
 > If you have time to fix documentation, kindly do a pull requests.
 
@@ -24,6 +25,11 @@ Serum Microphone is actively developed and it is a versatile program. The softwa
 
 Looking for documentation on each pages on serum mcirophone?
 Kindly refer to this [link](https://github.com/serumstudio/microphone/tree/main/docs/pages)
+
+## Building the application
+
+Looking for documentation on how to build this project on your own?
+Kindly refer [here](https://github.com/serumstudio/microphone/tree/main/docs/build)
 
 ## Found any bug/issues?
 > Still having an issue? Join our [discord server](https://discord.gg/e4ygDyK6rg)
