@@ -9,4 +9,6 @@
 |01| [About Page](https://github.com/serumstudio/microphone/blob/main/docs/pages/aboutpage.md) | 30 seconds |
 |01| [Settings Page](https://github.com/serumstudio/microphone/blob/main/docs/pages/settingspage) | 1 minute |
 
+See information on every pages as well as manual guide on how to use it.
+
 
