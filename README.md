@@ -19,3 +19,6 @@
 - ~~Add settings tab~~. (Done)
 - Fix bugs if there is. Issues are open.
 - Re-designing. I guess that makes sense since the design is simple. We want to add more details.
+
+# Change Log
+- 05/10/2021 (M/D/Y) - Added preview button (beta)
