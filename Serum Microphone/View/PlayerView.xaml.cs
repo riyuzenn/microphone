@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,6 +38,12 @@ namespace Serum_Microphone.View
         {
             get; set;
         }
+
+        public bool isPreview
+        {
+            get; set;
+        }
+
         public bool is_playing
         {
             get; set;
@@ -122,7 +128,19 @@ namespace Serum_Microphone.View
 
                 speechEngine.SelectVoiceByHints(gender, age);
                 speechEngine.Speak(config.text);
-                using (var waveOut = new WaveOut { Device = new WaveOutDevice(config.deviceId) })
+
+                int id;
+
+                if (config.isPreview)
+                {
+                    id = config.speakerId;
+                }
+                else
+                {
+                    id = config.deviceId;
+                }
+
+                using (var waveOut = new WaveOut { Device = new WaveOutDevice(id) })
                 using (var waveSource = new MediaFoundationDecoder(stream))
                 {
                     waveOut.Initialize(waveSource);
@@ -135,21 +153,32 @@ namespace Serum_Microphone.View
             }
 
         }
+       
 
         private void work_completed(object sender, RunWorkerCompletedEventArgs e)
         {
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Play()
         {
             config.text = _text.Text;
             BackgroundWorker worker = new BackgroundWorker();
             worker.DoWork += do_work;
             worker.RunWorkerCompleted += work_completed;
             worker.RunWorkerAsync();
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            config.isPreview = false;
+            Play();
+        }
 
+        private void _previewButton_Click(object sender, RoutedEventArgs e)
+        {
+            config.isPreview = true;
+            Play();
         }
     }
 }
