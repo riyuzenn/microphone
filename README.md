@@ -1,5 +1,5 @@
 # Serum Microphone
-
+> This project is actively maintained and updated.
 
 🎙 A Text-To-Speech program that act as your microphone. Download it at https://serummicrophone.ml
 
