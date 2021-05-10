@@ -21,4 +21,6 @@
 - Re-designing. I guess that makes sense since the design is simple. We want to add more details.
 
 # Change Log
+- 04/28/2021 (M/D/Y) - Add setting (beta)
+- 05/04/2021 (M/D/Y) - Change Discord Presence client (I accidentally flood the first one with requests) as well as the settings were fixed. 
 - 05/10/2021 (M/D/Y) - Added preview button (beta)
