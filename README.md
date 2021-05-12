@@ -24,3 +24,4 @@
 - **04/28/2021 (M/D/Y)** - *Add setting (beta)*
 - **05/04/2021 (M/D/Y)** - *Change Discord Presence client (I accidentally flood the first one with requests) as well as the settings were fixed.*
 - **05/10/2021 (M/D/Y)** - *Added preview button (released)*
+- **05/12/2021 (M/D/Y)** - *Change license from Apache to GNU General Public License v3*
