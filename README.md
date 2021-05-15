@@ -17,6 +17,7 @@
 # TODO
 - ~~Add Discord Presence~~ (Done)
 - ~~Add settings tab~~. (Done)
+- Add tts downloader
 - Fix bugs if there is. Issues are open.
 - Re-designing. I guess that makes sense since the design is simple. We want to add more details.
 
