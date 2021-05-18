@@ -11,7 +11,7 @@
 # Tried on
 > Only for windows
 - Windows 10 (32 & 64 bit) :heavy_check_mark:
-- Windows 8 (32 & 64 bit) (I havent tried yet. If you did, kindly dm me on discord: Zenqi#0231)
+- Windows 8 (32 & 64 bit) :heavy_check_mark:
 - Windows 7 (32 & 64 bit) (I havent tried yet. If you did, kindly dm me on discord: Zenqi#0231)
 
 # TODO
