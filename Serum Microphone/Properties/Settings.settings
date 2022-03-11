@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Serum_Microphone.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
@@ -13,6 +13,9 @@
     </Setting>
     <Setting Name="new_version" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="download_path" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Downloads</Value>
     </Setting>
   </Settings>
 </SettingsFile>
