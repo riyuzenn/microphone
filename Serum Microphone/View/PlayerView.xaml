@@ -16,10 +16,10 @@
 
             <TextBox x:Name="_text" Width="500" HorizontalAlignment="Center"></TextBox>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                
-                <Button x:Name="_previewButton" Content="Preview" Width="100" Margin="0,10,0,0" HorizontalAlignment="Center" ToolTip="Preview" Click="_previewButton_Click" />
-                <Button  x:Name="_button"  Content="Say" Width="100" Margin="10,10,0,0" HorizontalAlignment="Center" ToolTip="Say it" Click="Button_Click"/>
-                <Button x:Name="downloadBtn" Content="Download" Width="100" Margin="10,10,0,0" HorizontalAlignment="Center" ToolTip="Download" Click="downloadBtn_Click"/>
+
+                <Button  x:Name="_button"  Content="Say" Width="120" Margin="0,10,0,0" HorizontalAlignment="Center" ToolTip="Say it" Click="Button_Click"/>
+                <Button x:Name="_previewButton" Content="Preview" Width="120" Margin="10,10,0,0" HorizontalAlignment="Center" ToolTip="Preview" Click="_previewButton_Click" />
+                <Button x:Name="downloadBtn" Content="Download" Width="120" Margin="10,10,0,0" HorizontalAlignment="Center" ToolTip="Download" Click="downloadBtn_Click"/>
             
             </StackPanel>
             
