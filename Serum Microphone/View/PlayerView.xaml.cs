@@ -12,13 +12,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Speech.Synthesis;
 using System.Text.RegularExpressions;
 using CSCore.SoundOut;
 using System.ComponentModel;
 using System.IO;
 using CSCore;
 using CSCore.MediaFoundation;
-using System.Speech.Synthesis;
 
 
 
@@ -48,6 +48,14 @@ namespace Serum_Microphone.View
         {
             get; set;
         }
+        public bool isDownload
+        {
+            get; set;
+        }
+        public string downloadedFile
+        {
+            get; set;
+        }
     }
     public partial class PlayerView : Page
     {
@@ -61,6 +69,15 @@ namespace Serum_Microphone.View
             
 
         }
+        private string GetDownloadPath()
+        {
+            string downloadPath = Properties.Settings.Default.download_path;
+            Directory.CreateDirectory(downloadPath);
+            string output = String.Format("{0}/{1}.wav", downloadPath, DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss"));
+
+            return output;
+        }
+
 
         private void do_work(object sender, DoWorkEventArgs e)
         {
@@ -140,14 +157,28 @@ namespace Serum_Microphone.View
                     id = config.deviceId;
                 }
 
+                
+
                 using (var waveOut = new WaveOut { Device = new WaveOutDevice(id) })
                 using (var waveSource = new MediaFoundationDecoder(stream))
                 {
-                    waveOut.Initialize(waveSource);
-                    waveOut.Play();
-                    //config.is_playing = true;
-                    waveOut.WaitForStopped();
-                   
+                    
+                    if (config.isDownload)
+                    {
+                        string path = GetDownloadPath();
+                        waveSource.WriteToFile($"{path}");
+                        config.downloadedFile = path;
+                    }   
+                    else
+                    {
+                       
+                        waveOut.Initialize(waveSource);
+                        waveOut.Play();
+                        //config.is_playing = true;
+                        waveOut.WaitForStopped();
+                    }
+                    
+                    
 
                 }
             }
@@ -169,16 +200,34 @@ namespace Serum_Microphone.View
             worker.RunWorkerAsync();
         }
 
+      
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             config.isPreview = false;
+            config.isDownload = false;
             Play();
         }
 
         private void _previewButton_Click(object sender, RoutedEventArgs e)
         {
             config.isPreview = true;
+            config.isDownload = false;
             Play();
+        }
+
+        private async void downloadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            config.isDownload = true;
+            config.isPreview = false;        
+            Play();
+            ModernWpf.Controls.ContentDialog dialog = new ModernWpf.Controls.ContentDialog();
+            dialog.Title = "Serum Microphone";
+            dialog.Content = $"File Saved: {config.downloadedFile}";
+            dialog.PrimaryButtonText = "Ok";
+            dialog.SecondaryButtonText = "Cancel";
+            await dialog.ShowAsync();
+
         }
     }
 }
