@@ -34,4 +34,4 @@ Kindly refer [here](https://github.com/serumstudio/microphone/tree/main/docs/bui
 ## Found any bug/issues?
 > Still having an issue? Join our [discord server](https://discord.gg/e4ygDyK6rg)
 
-You can open a new issue @ https://github.com/serumstudio/microphone/issues. Don't be shy to post any bug you found so we could make sure the software will be used for future purposes. Please take not that we atleast commit every week on this repo making it an active development of this software so we could deliver high quality products for you.
+You can open a new issue @ https://github.com/serumstudio/microphone/issues. Don't be shy to post any bug you found so we could make sure the software will be used for future development
